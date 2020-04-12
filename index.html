@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+    <title>ME MEME</title>
+</head>
+
+<body onload="init()">
+    <header class="flex">
+        <img src="imgs/logo.png" alt="Logo">
+        <nav class="flex">
+            <div class="nav-left-background purple-bgc"></div>
+            <ul class="flex purple-bgc">
+                <li onclick="onGalleryDisplay()">Gallery</li>
+                <li>Memes</li>
+                <li>About</li>
+                <div class="right-header-background yellow-bgc">
+                    <div class="hamburger-img">☰</div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="mime-maker flex center hide">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="450" width="450" onmousedown="onMouseDown(event)"
+                    onmousemove="onMouseMove(event)" onmouseup="onMouseUp()"></canvas>
+            </div>
+            <div class="meme-editor">
+                <input class="text-input text-display outline-none" type="text" oninput="onTextInput()" placeholder="Line" value="">
+                <section class="firt-row flex center">
+                    <button onclick="onTextPos(-5)" class="text-pos-up one-img-button cursor-pointer"></button>
+                    <button onclick="onTextPos(+5)" class="text-pos-down one-img-button cursor-pointer"></button>
+                    <button onclick="onSwitchLine()" class="lines-controller one-img-button cursor-pointer"></button>
+                    <button onclick="onAddLine()" class="add-line one-img-button cursor-pointer"></button>
+                    <button onclick="onDelete()" class="delete one-img-button cursor-pointer"></button>
+                </section>
+                <section class="second-row flex center">
+                    <button onclick="onTextSize(5)" class="text-size-plus one-img-button cursor-pointer"></button>
+                    <button onclick="onTextSize(-5)" class="text-size-min one-img-button cursor-pointer"></button>
+                    <button onclick="onSetAlign()" class="align-controller one-img-button cursor-pointer"></button>
+                    <select onchange="onSetFont(value)" class="font-dropdown text-display" name="" id="">
+                        <option value="IMPACT">IMPACT</option>
+                        <option value="Ariel">Ariel</option>
+                        <option value="cursive">Cursive</option>
+                    </select>
+                </section>
+                <section class="colors flex center">
+                    <input onchange="onSetColor(this, 'stroke')" class="stroke color cursor-pointer" type="color" value=""></input>
+                    <input onchange="onSetColor(this, 'fill')" class="fill color cursor-pointer" type="color" value="#ffffff"></input>
+                </section>
+            </div>
+        </div>
+        <div class="img-selection">
+            <div class="container">
+                <div class="filter-container flex">
+                    <form class="flex" action="">
+                        <div class="search-container flex">
+                            <input class="search-input text-display outline-none" type="search">
+                            <input class="search-submit cursor-pointer outline-none" type="submit" value="Search">
+                        </div>
+                    </form>
+                    <ul class="flex">
+                        <li>Funny</li>
+                        <li>Animal</li>
+                        <li>Men</li>
+                        <li>Woman</li>
+                        <li>All</li>
+                    </ul>
+                </div>
+                <div class="gallery-container">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <aside></aside>
+    <footer>
+        <!-- TODO: CopyR -->
+    </footer>
+    <script src="js/service.js"></script>
+    <script src="js/memeService.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/canvasController.js"></script>
+</body>
+
+</html>
