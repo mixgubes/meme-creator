@@ -86,7 +86,7 @@ function onSwitchLine() {
     }, 20);
 }
 
-function switchLine(line){
+function switchLine(line) {
     setInMeme('selectedLineIdx', line);
     document.querySelector('.text-input').value = getFromLines(line, 'txt');
     setTimeout(() => {
@@ -101,9 +101,9 @@ function onAddLine() {
     onSwitchLine();
 }
 
-function onSetFont(value){
+function onSetFont(value) {
     let currLine = getFromMeme('selectedLineIdx');
-    setInLines(currLine,'font',value)
+    setInLines(currLine, 'font', value)
     renderCanvas()
 }
 
@@ -143,18 +143,18 @@ function setScrollSettings(key, values, selector) {
 
 function _renderButton(value, selector) {
     console.log(value);
-    
+
     document.querySelector(selector).innerHTML = `<img src="ICONS/${value}.png">`;
 }
 
-function onSetColor(el, key){
+function onSetColor(el, key) {
     let currLine = getFromMeme('selectedLineIdx');
     let color = el.value;
     setInLines(currLine, key, color);
     renderCanvas();
 }
 
-function onGalleryDisplay(){
+function onGalleryDisplay() {
     document.querySelector('.mime-maker').classList.add('hide');
     document.querySelector('.img-selection').classList.remove('hide');
 }
@@ -163,7 +163,7 @@ function setFocus() {
     document.querySelector('.text-input').focus();
 }
 
-function renderButtons(){
+function renderButtons() {
     document.querySelector('.text-size-plus').innerHTML = '<img src="ICONS/increase.png">';
     document.querySelector('.text-size-min').innerHTML = '<img src="ICONS/decrease.png">';
     document.querySelector('.text-pos-up').innerHTML = '<img src="ICONS/arrow.png">';
@@ -173,4 +173,30 @@ function renderButtons(){
     document.querySelector('.stroke').innerHTML = '<img src="ICONS/stroke.png">';
     document.querySelector('.lines-controller').innerHTML = '<img src="ICONS/switch.png">';
     document.querySelector('.align-controller').innerHTML = '<img src="ICONS/center.png">';
+}
+
+function onMenuToggle() {
+    let menuContainer = document.querySelector('.right-header-background');
+    menuContainer.classList.toggle('mobile-menu-button');
+
+    let menu = document.querySelector('.menu');
+    menu.classList.toggle('mobile-ul');
+
+    let lis = menu.children
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].classList.toggle('mobile-display-block');
+    }
+}
+
+function onMenuRemove(){
+    let menuContainer = document.querySelector('.right-header-background');
+    menuContainer.classList.remove('mobile-menu-button');
+
+    let menu = document.querySelector('.menu');
+    menu.classList.remove('mobile-ul');
+
+    let lis = menu.children
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].classList.remove('mobile-display-block');
+    }
 }

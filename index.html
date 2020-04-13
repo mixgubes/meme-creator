@@ -14,14 +14,16 @@
         <img src="imgs/logo.png" alt="Logo">
         <nav class="flex">
             <div class="nav-left-background purple-bgc"></div>
-            <ul class="flex purple-bgc">
-                <li onclick="onGalleryDisplay()">Gallery</li>
-                <li>Memes</li>
-                <li>About</li>
-                <div class="right-header-background yellow-bgc">
-                    <div class="hamburger-img">☰</div>
+            <div class="flex purple-bgc">
+                <ul class="menu flex">
+                    <li onclick="onGalleryDisplay(),onMenuRemove()">Gallery</li>
+                    <li onclick="onMenuRemove()">Memes</li>
+                    <li onclick="onMenuRemove()">About</li>
+                </ul>
+                    <div class="right-header-background yellow-bgc">
+                    <div onclick="onMenuToggle()" class="hamburger-img">☰</div>
                 </div>
-            </ul>
+            </div>
         </nav>
     </header>
     <main>
